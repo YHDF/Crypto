@@ -82,3 +82,13 @@ def vigToText(text, key, alphalist) :
             keyIdx = 0
             
     return result
+
+# CryptAnalyse
+def attaque_brute_force_sa(text, alphalist): 
+    for index in range(25):
+        resultText = cesarToText(text, index, alphalist)
+        print("Clé " + str(index) +  " - Texte : " + resultText)
+        decision = input("Pour tester la clé suivante, appuyer sur la touche N, sinon S pour stopper. ")
+        if(decision == 'S' || decision == 's') :
+            return None
+        

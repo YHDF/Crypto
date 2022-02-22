@@ -28,4 +28,6 @@ def clean(text) :
 # print(SU.textToVig('objectif', [1, 3, 2], alphalist))
 # print(SU.vigToText('pelffvji', [1, 3, 2], alphalist))
 # print(U.vigTofile('testfile.txt', [1, 3, 2], alphalist))
-print(U.fileToVig('testfile.txt', [1, 3, 2], alphalist))
+#print(U.fileToVig('testfile.txt', [1, 3, 2], alphalist))
+
+print(SU.attaque_brute_force_sa('erqmrxu d wrxwhv hw d wrxv vrbhc ohv elhqyhqxhv', alphalist))
