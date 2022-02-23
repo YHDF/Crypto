@@ -39,7 +39,7 @@ def clean(text) :
 
 # # print(SU.indexC_approx("crpkrwsmgndrqhnduktwqqkgfwlfvwjvjppqthzvhnfwlbloplcvvujggtgtplvtgcovnbvqdlguh", alphalist))
 
-print(SU.attaque_doublement_lettre("suxqhooh", alphalist))
+print(SU.attaque_doublement_lettre("suxqhoohkrpphihpphsuhqqhwhvw", alphalist))
 
 # print("JAKXQSWECW"[::3])
 # print("JAKXQSWECW"[1:][::3])
