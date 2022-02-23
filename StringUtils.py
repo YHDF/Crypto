@@ -174,3 +174,22 @@ def key_len(text, alphalist) :
 #     result = numerator/denominator
 
 #     return result
+
+## Attaque par doublement de lettre en fin de mot
+# On va considérer que les 3 derniers lettres contiennet "e" à la fin du mot
+# si on trouve c'est bien, sinon on exécutera une attaque statistique sur "e" 
+# à la fin pour déterminer le décalage
+def attaque_doublement_lettre(text, alphalist) :
+    text = toLowerCase(text)
+    text = replaceAccents(text)
+    charE = text[-1]
+    key = alphalist.index(charE) - alphalist.index("e") # décalage en supposant la fin du mot est "e"
+
+    resultString = cesarToText(text, key, alphalist)
+    print("\nClé " + str(key) +  " - Texte : " + resultString)
+    decision = input("Pour tester la clé suivante, appuyer sur la touche N, sinon S pour stopper. ")
+
+    if(decision == 'S' or decision == 's') :
+        return "Exiting..." # TODO choose better string to print
+    else :
+        e_attack(text, alphalist)

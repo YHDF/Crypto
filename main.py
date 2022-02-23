@@ -33,11 +33,13 @@ def clean(text) :
 # print(SU.attaque_brute_force_sa('erqmrxu d wrxwhv hw d wrxv vrbhc ohv elhqyhqxhv', alphalist))
 # print(SU.e_attack("erqmrxu d wrxwhv hw d wrxv vrbhc ohv elhqyhqxhv", alphalist))
 
-print(SU.indexC("crpkrwsmgndrqhnduktwqqkgfwlfvwjvjppqthzvhnfwlbloplcvvujggtgtplvtgcovnbvqdlguh", alphalist))
-indicesC = SU.key_len("crpkrwsmgndrqhnduktwqqkgfwlfvwjvjppqthzvhnfwlbloplcvvujggtgtplvtgcovnbvqdlguh", alphalist)
-print(indicesC)
+# print(SU.indexC("crpkrwsmgndrqhnduktwqqkgfwlfvwjvjppqthzvhnfwlbloplcvvujggtgtplvtgcovnbvqdlguh", alphalist))
+# indicesC = SU.key_len("crpkrwsmgndrqhnduktwqqkgfwlfvwjvjppqthzvhnfwlbloplcvvujggtgtplvtgcovnbvqdlguh", alphalist)
+# print(indicesC)
 
-# print(SU.indexC_approx("crpkrwsmgndrqhnduktwqqkgfwlfvwjvjppqthzvhnfwlbloplcvvujggtgtplvtgcovnbvqdlguh", alphalist))
+# # print(SU.indexC_approx("crpkrwsmgndrqhnduktwqqkgfwlfvwjvjppqthzvhnfwlbloplcvvujggtgtplvtgcovnbvqdlguh", alphalist))
+
+print(SU.attaque_doublement_lettre("suxqhooh", alphalist))
 
 # print("JAKXQSWECW"[::3])
 # print("JAKXQSWECW"[1:][::3])
