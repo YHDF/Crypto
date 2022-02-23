@@ -30,4 +30,11 @@ def clean(text) :
 # print(U.vigTofile('testfile.txt', [1, 3, 2], alphalist))
 #print(U.fileToVig('testfile.txt', [1, 3, 2], alphalist))
 
-print(SU.attaque_brute_force_sa('erqmrxu d wrxwhv hw d wrxv vrbhc ohv elhqyhqxhv', alphalist))
+# print(SU.attaque_brute_force_sa('erqmrxu d wrxwhv hw d wrxv vrbhc ohv elhqyhqxhv', alphalist))
+# print(SU.e_attack("erqmrxu d wrxwhv hw d wrxv vrbhc ohv elhqyhqxhv", alphalist))
+
+# print(SU.indexC("RSTCSJLSLRSLFELGWLFIISIKRMGL", alphalist))
+print(SU.key_len("KQOWEFVJPUJUUNUKGLMEKJINMWUXFQMKJBGWRLFNFGHUDWUUMBSVLPS", alphalist))
+
+# print("JAKXQSWECW"[::3])
+# print("JAKXQSWECW"[1:][::3])
