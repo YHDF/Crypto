@@ -9,14 +9,17 @@ prob_lettre_alphabet = 0.0385
 frenchOccurences = ['e', 'a', 'i', 's', 'n', 'r', 't', 'o', 'l', 'u', 'd', 'c', 'm', 'p', 'g', 'b', 'v', 'h', 'f', 'q', 'y', 'x', 'j', 'k', 'w', 'z']
 
 # TODO Ajouter toLowerCase et replaceAccents pour toutes les fonctions
-
 def toLowerCase(text):
     return text.lower() 
 
 def replaceAccents(text):
     return text.replace(text, unidecode.unidecode(text))
 
+def clean(text) :
+    return replaceAccents(toLowerCase(text))
+
 def occurenceOfLetter(text, alphalist) :
+    text = clean(text)
     occurences = []
     for letter in alphalist :
         occurences.append(text.count(letter))
@@ -24,6 +27,7 @@ def occurenceOfLetter(text, alphalist) :
     return occurences
 
 def rateOfLetter(text, alphalist) :
+    text = clean(text)
     rateOccurences = []
     occurences = occurenceOfLetter(text, alphalist)
 
@@ -54,6 +58,7 @@ def cesarToChar(char, key, alphalist) :
     return alphalist[keyIdx]
 
 def textToCesar(text, key, alphalist) :
+    text = clean(text)
     result = ""
     for char in text :
         result += charToCesar(char, key, alphalist)
@@ -61,14 +66,16 @@ def textToCesar(text, key, alphalist) :
     return result
 
 def cesarToText(text, key, alphalist) :
+    text = clean(text)
     result = ""
     for char in text :
         result += cesarToChar(char, key, alphalist)
 
     return result
 
-# Chiffrage VIGENAIRE
+# Chiffrage VIGENERE
 def textToVig(text, key, alphalist) :
+    text = clean(text)
     keyIdx = 0
     result = ""
 
@@ -82,6 +89,7 @@ def textToVig(text, key, alphalist) :
     return result
 
 def vigToText(text, key, alphalist) :
+    text = clean(text)
     keyIdx = 0
     result = ""
 
@@ -97,6 +105,7 @@ def vigToText(text, key, alphalist) :
 # CryptAnalyse
 ## Attaque bruteforce semi-auto
 def attaque_brute_force_sa(text, alphalist): 
+    text = clean(text)
     for key in range(len(alphalist)):
         resultText = vigToText(text, [key], alphalist)
         print("\nClé " + str(key) +  " - Texte : " + resultText)
@@ -107,6 +116,7 @@ def attaque_brute_force_sa(text, alphalist):
         
 ## Attaque statistique sru le "e"
 def e_attack(text, alphalist) :
+    text = clean(text)
     for char in frenchOccurences :
         key = alphalist.index(char) # clé de déchiffrage
         resultText = vigToText(text, [key], alphalist)
@@ -123,7 +133,7 @@ def e_attack(text, alphalist) :
 # avec n le nombre de lettres total du msg
 # na le nombre de A, nb le nombre de B, nc le nombre de C etc...
 def indexC(text, alphalist) :
-    text = toLowerCase(text)
+    text = clean(text)
     arrayOccurences = occurenceOfLetter(text, alphalist)
     ic = 0.0
     n = len(text)
@@ -133,24 +143,13 @@ def indexC(text, alphalist) :
 
     return float('%.4f'%ic)
 
-def indexC_approx(text, alphalist) :
-    text = toLowerCase(text)
-    ic = []
-    n = len(text)
-
-    for m in range(1, 26):
-        icTmp = ((n - m) / (m * (n - 1)) * ICLangue) + ((n * (m - 1)) / ((n - 1) * m) * 0.0385)
-        ic.append(icTmp)
-        
-    print(ic)
-
 def key_len(text, alphalist) :
+    text = clean(text)
     keyLen_min = 1
     keyLen_max = len(alphalist)
     avgIC_array = dict()
     IC_array = []
-    keyLen = 0
-    allIndicesC = []
+    keyLen = 0 # TODO
     for currKeyLen in range(keyLen_min, keyLen_max) :
         for j in range(currKeyLen) : 
             substring = text[j:][::currKeyLen]
@@ -162,18 +161,8 @@ def key_len(text, alphalist) :
 
         IC_array = []
         
-    # for i in range(1, 10) :
-    #     allIndicesC.append(indexC(text, alphist))
     return avgIC_array
 
-# def key_len(text, alphalist) :
-#     n = len(text)
-#     IC = indexC(text, alphalist)
-#     numerator = (n * (ICLangue - prob_lettre_alphabet))
-#     denominator = ((n * IC) - IC + ICLangue - (prob_lettre_alphabet * n))
-#     result = numerator/denominator
-
-#     return result
 
 ## Attaque par doublement de lettre en fin de mot
 # On analyse le texte et on essayera de trouver où
@@ -181,7 +170,7 @@ def key_len(text, alphalist) :
 # après les avoir identifiées, on supposera la lettre
 # suivante à ces deux lettre comme "e"
 def attaque_doublement_lettre(text, alphalist) :
-    text = toLowerCase(replaceAccents(text))
+    text = clean(text)
     charE = ""
     key = 0
 
