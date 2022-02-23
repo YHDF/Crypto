@@ -133,27 +133,44 @@ def indexC(text, alphalist) :
 
     return float('%.4f'%ic)
 
-# def key_len(text, alphalist) :
-#     keyLen_min = 1
-#     keyLen_max = len(alphalist)
-#     avgIC_array = dict()
-#     keyLen = 0
-#     allIndicesC = []
-#     for currKeyLen in range(keyLen_min, keyLen_max) :
-#         for j in range(currKeyLen) : 
-#             substring = text[j:][::currKeyLen]
-#             avgIC = float(indexC(substring, alphalist))
-#             avgIC_array[currKeyLen] = avgIC
+def indexC_approx(text, alphalist) :
+    text = toLowerCase(text)
+    ic = []
+    n = len(text)
+
+    for m in range(1, 26):
+        icTmp = ((n - m) / (m * (n - 1)) * ICLangue) + ((n * (m - 1)) / ((n - 1) * m) * 0.0385)
+        ic.append(icTmp)
         
-#     # for i in range(1, 10) :
-#     #     allIndicesC.append(indexC(text, alphist))
-#     return keyLen
+    print(ic)
 
 def key_len(text, alphalist) :
-    n = len(text)
-    IC = indexC(text, alphalist)
-    numerator = (n * (ICLangue - prob_lettre_alphabet))
-    denominator = ((n * IC) - IC + ICLangue - (prob_lettre_alphabet * n))
-    result = numerator/denominator
+    keyLen_min = 1
+    keyLen_max = len(alphalist)
+    avgIC_array = dict()
+    IC_array = []
+    keyLen = 0
+    allIndicesC = []
+    for currKeyLen in range(keyLen_min, keyLen_max) :
+        for j in range(currKeyLen) : 
+            substring = text[j:][::currKeyLen]
+            IC_array.append(float(indexC(substring, alphalist)))
 
-    return result
+        
+        avgIC = sum(IC_array)/len(IC_array)
+        avgIC_array[currKeyLen] = avgIC
+
+        IC_array = []
+        
+    # for i in range(1, 10) :
+    #     allIndicesC.append(indexC(text, alphist))
+    return avgIC_array
+
+# def key_len(text, alphalist) :
+#     n = len(text)
+#     IC = indexC(text, alphalist)
+#     numerator = (n * (ICLangue - prob_lettre_alphabet))
+#     denominator = ((n * IC) - IC + ICLangue - (prob_lettre_alphabet * n))
+#     result = numerator/denominator
+
+#     return result
