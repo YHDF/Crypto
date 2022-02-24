@@ -30,8 +30,8 @@ def fctChoisie(choix, text, key, filename) :
     
     return result
     # }
-    # return switcher.get(choix, "Option invalide.")
-
+#    # return switcher.get(choix, "Option invalide.")
+#
 while True :
     print(
         "\n\t----- CESAR -----\n"+
@@ -95,8 +95,8 @@ while True :
         if continuer == "N" or continuer == "n" :
             break
 
-    
-
+#    
+#
 
 
 # PARTIE TEST
@@ -122,9 +122,7 @@ while True :
 # print(SU.e_attack("erqmrxu d wrxwhv hw d wrxv vrbhc ohv elhqyhqxhv", alphalist))
 
 # print(SU.indexC("crpkrwsmgndrqhnduktwqqkgfwlfvwjvjppqthzvhnfwlbloplcvvujggtgtplvtgcovnbvqdlguh", alphalist))
-# indicesC = SU.key_len("crpkrwsmgndrqhnduktwqqkgfwlfvwjvjppqthzvhnfwlbloplcvvujggtgtplvtgcovnbvqdlguh", alphalist)
-# print(indicesC)
-
+# print(SU.key_len("vpugbhjscunolvuwskclfukttnlhtvykhahfusvbvvfxtaoldvfjbosrqrjsouwewsvypqurfxdpfvnnkbzrvxjtdhxnqdkxkhqnzyslxsuunbhvfuigxzobettdpqvkyknbssghknlqugyjeblwcszcbumgurkuwzrtmbhsikvaolvmgugbhjscunolvuetszyltgszblgfwcgvpqfgxgcxxjuftksbtgszkbvjetswlxoguuxjwvcyoyuemcsirlhuejrkyltszknlgppskbbqfkrgqlvvtqkcchskyglshtetxbbsukttabhmgruxkhtwgodhxkwwjrblhgsxoshtttadlvegguszhunjxozwffjrkwdvxwkdlwmcroclufwsvkydhtfvrlhtvztozhdvnuxkhfuyzoewfgxtzyrtgauelhbwikfloprukwlqufztzvlovugbaldwqooyvpwakxadvoteougfrqacphvtxvrydtgxjkuvmchuxalownzokxqtjiokhovjznbxjxftdzxsnjvvhquauuqydqjnwelhtnjvkydhtfvrlhtvhuwwujujtdyhegzdkslogjykztvkxgxhozujtdhxtkhuwthvpjvyufuwfzsvqcnftmohfvhkvhujuvaokheqstoyxognsknhtwwrozyftnzkiofuhubyxqvnuxxxfnjsyugfuzhsadvlzxnoxjijtblofuwueahtfjhypvfvqkblvugikvhsbwaxoahunfsszhsg", alphalist))
 # # print(SU.indexC_approx("crpkrwsmgndrqhnduktwqqkgfwlfvwjvjppqthzvhnfwlbloplcvvujggtgtplvtgcovnbvqdlguh", alphalist))
 
 # print(SU.attaque_doublement_lettre("suxqhoohkrpphihpphsuhqqhwhvw", alphalist))
